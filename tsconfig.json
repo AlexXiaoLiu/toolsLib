@@ -1,0 +1,10 @@
+{
+  "compilerOptions":{
+    "outDir": "./",
+    "allowJs": true,
+    "target":"ES6",
+    "removeComments": true,
+    "moduleResolution": "node",
+  },
+  "exclude": ["node_modules","dist"]
+}
