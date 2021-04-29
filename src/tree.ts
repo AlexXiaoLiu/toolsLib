@@ -2,11 +2,11 @@
  * list转tree结构
  * 
  * 
- * @param list         // list数组
- * @param pid          // 父级ID的值
- * @param nodeIdName   // 当前节点ID的字段名
- * @param nodePidName  // 当前节点父级ID的字段名
- * @param childName    // 返回组装的子集字段名
+ * @param list          list数组
+ * @param pid           父级ID的值
+ * @param nodeIdName    当前节点ID的字段名
+ * @param nodePidName   当前节点父级ID的字段名
+ * @param childName     返回组装的子集字段名
  * @returns 
  */
 
@@ -30,11 +30,11 @@ export const list2Tree = (list:Array<any>,pid:string,nodeIdName:string,nodePidNa
  * 树形结构里面查找匹配的字段的值，然后返回对应字段的值
  * 
  * 
- * @param tree                // 树形结构数据
- * @param searchFieIdValue    // 搜索字段的值
- * @param searchFieId         // 搜索的字段名
- * @param returnFieId         // 返回的字段名
- * @param childName           // 子集字段名
+ * @param tree                 树形结构数据
+ * @param searchFieIdValue     搜索字段的值
+ * @param searchFieId          搜索的字段名
+ * @param returnFieId          返回的字段名
+ * @param childName            子集字段名
  * @returns 
  */
 
@@ -64,8 +64,8 @@ export const searchTreeFieIdValue = (tree:Array<any>,searchFieIdValue:any,search
  * 树形结构拍平成list(保留了child)
  * 
  * 
- * @param tree         // 树形数据 
- * @param childName    // 子集字段名称
+ * @param tree          树形数据 
+ * @param childName     子集字段名称
  * @returns 
  */
 export const tree2List = (tree:Array<any>,childName:string) => {
