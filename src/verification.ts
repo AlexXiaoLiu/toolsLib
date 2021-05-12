@@ -50,3 +50,36 @@ export const isTelPhone = (telPhone:string) => {
     return false;
   }
 }
+
+/**
+ * 判断是否为 png jpg pdf的文件
+ * @param type 
+ * @returns 
+ */
+export function verificationImgType(type:string){
+  if(type!=='image/png'&&
+  type!=='image/jpeg'&&
+  type!=='image/jpg'&&
+  type!=='application/pdf'){
+    return false;
+  } else {
+    return true;
+  }
+}
+
+/**
+ * 判断是否为 doc doc xls xlsx的文件
+ * @param type 
+ * @returns 
+ */
+export function verificationFileType(type:string){
+  if(type!=='application/vnd.ms-excel'&&
+  type!=='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'&&
+  type!=='application/msword'&&
+  type!=='application/vnd.openxmlformats-officedocument.wordprocessingml.document'){
+    return false;
+  } else {
+    return true;
+  }
+}
+
