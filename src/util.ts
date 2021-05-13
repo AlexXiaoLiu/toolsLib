@@ -39,14 +39,15 @@ export const removeAllLocalStorage = () => {
  * @param name string类型，cookie的key，必填
  * @param data string类型或number类型，cookie的value，必填
  * @param expire number类型，单位为天，cookie的过期时间，可选，不填则关闭会话就销毁
+ * @param path cookie存储路径 默认 /
  */
-export const setCookie = (name: string, data:string | number, expire?:number) =>{
+export const setCookie = (name: string, data:string | number, expire?:number, path:string = '/') =>{
   if(expire){
     let expireDate = new Date();
     expireDate.setDate(expireDate.getDate() + expire);
-    document.cookie = name+'='+encodeURIComponent(data)+';expires='+expireDate;
+    document.cookie = name+'='+encodeURIComponent(data)+';expires='+expireDate+';path='+path;
   } else {
-    document.cookie = name+'='+encodeURIComponent(data)+';';
+    document.cookie = name+'='+encodeURIComponent(data)+';path='+path;
   }
 }
 
