@@ -57,11 +57,14 @@ export const setCookie = (name: string, data:string | number, expire?:number, pa
  */
 export const getCookie = (name:string) => {
   var cookieArr = document.cookie.split('; ');
-  let arr = cookieArr.filter(i=>{return i.split('=')[0]== name});
-  if(arr){
-    let data = arr.map(item=>{return item.split('=')[1]})[0];
-    return decodeURIComponent(data);
+  if(cookieArr[0]){
+    let arr = cookieArr.filter(i=>{return i.split('=')[0]== name});
+    if(arr){
+      let data = arr.map(item=>{return item.split('=')[1]})[0];
+      return decodeURIComponent(data);
+    }
   }
+  
   return null;
 }
 
@@ -71,6 +74,29 @@ export const getCookie = (name:string) => {
  */
 export const removeCookieItem = (name:string) => {
   setCookie(name,1,-1);
+}
+
+/**
+ * 滚动至页面顶部
+ */
+
+export const scrollToTop = () => {
+  const currentPosition = document.body.scrollTop || document.documentElement.scrollTop;
+
+  if(currentPosition>0){
+    window.requestAnimationFrame(scrollToTop);
+    window.scrollTo(0, currentPosition - currentPosition/7);
+  }
+}
+
+/**
+ * 获取url跟随的query参数
+ */
+export const getUrlSearch = () => {
+  let urlSearchString = window.location.search;
+
+  urlSearchString = urlSearchString.slice(1,urlSearchString.length - 1);
+
 }
 
 /**

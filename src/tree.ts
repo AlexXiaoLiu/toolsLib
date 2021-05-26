@@ -80,3 +80,34 @@ export const tree2List = (tree:Array<any>,childName:string) => {
   
   return listData;
 }
+
+/**
+ * 根据查找值返回树节点
+ * 
+ * @param tree                树形结构数据
+ * @param searchFieId         搜索的字段名
+ * @param searchFieIdValue    搜索字段的值
+ * @param childName           子集字段名
+ */
+
+export const findTreeIndex = (tree:Array<any>,searchFieId:string,searchFieIdValue:string,childName:string) => {
+  let revertValue:any = null;
+  if(tree && tree.length > 0){
+    tree.forEach((item:any)=>{
+      if(revertValue){
+        return revertValue;
+      }
+      if(item[searchFieId] === searchFieIdValue){
+        revertValue = item;
+        return revertValue;
+      } else {
+        if(item[childName] && item[childName].length > 0){
+          revertValue = findTreeIndex(item[childName],searchFieId,searchFieIdValue,childName);
+        }
+      }
+    });
+    return revertValue;
+  } else {
+    return '';
+  }
+}
